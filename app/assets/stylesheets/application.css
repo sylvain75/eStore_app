@@ -13,7 +13,16 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets"
-@import "bootstrap"
+/*@import "bootstrap-sprockets"
+@import "bootstrap"*/
 
+/*.thumbnail {
+  display: inline-block;
+}
+.col-md-4 {
+  display: inline;
+}*/
 
+.cart_list li{
+  text-decoration: none;
+}
