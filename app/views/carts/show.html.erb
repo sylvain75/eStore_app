@@ -1,27 +1,19 @@
-<h2>My cart</h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-
-  </thead>
-
-  <tbody>
-    <% @cart.line_items.each do |item| %>
-    <li><%= item.quantity %> &times; <%= item.product.title %></li>
+<div id="store">
+  <div class="cart_title">Your Cart</div> 
+  <table>
+    <% for item in @cart.line_items %> 
       <tr>
-        <td class=".table-striped"><%= link_to item.product.title, item.product.title %></td>
-        <td class=".table-striped"><%= item.quantity %> &times; <%= item.product.title %></td>
-        <td class=".table-striped"><%= number_to_currency(item.product.price) %></td>
-      </tr>
+        <td><%= item.quantity %>&times;</td>
+        <td><%= item.product.title %></td>
+        <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+      </tr> 
     <% end %>
-    <tr>
-      <th>Total</th>
-      <td></td>
+
+    <tr class="total_line">
+      <td colspan="2">Total</td>
+      <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
     </tr>
-  </tbody>
-</table>
+
+  </table>
+</div>
+<%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>

@@ -30,8 +30,8 @@ def create
 
   respond_to do |format|
     if @line_item.save
-      format.html { redirect_to(@line_item.cart,
-      :notice => 'Line item was successfully created.') }
+
+      format.html { redirect_to(@line_item.cart) }
       format.xml { render :xml => @line_item,
       :status => :created, :location => @line_item }
     else
@@ -40,6 +40,10 @@ def create
       :status => :unprocessable_entity }
     end
   end
+end
+
+def total_price 
+  product.price * quantity
 end
 
   # PATCH/PUT /line_items/1
