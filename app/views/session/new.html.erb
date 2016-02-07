@@ -1,0 +1,20 @@
+
+<div id="loginSignupContainer">
+
+
+  <h1>Welcome</h1>
+  <h5>Login with your details below</h5>
+
+    <%= form_tag '/login', :autocomplete => "off" do %>
+    <%= label_tag 'email' %>
+    <%= text_field_tag :email, nil, :autofocus => true, :required => true, :class => 'form-control', :placeholder => 'Username' %>
+    <%= label_tag 'Password' %>
+    <%= password_field_tag :password, nil, :required => true, :class => 'form-control' %>
+  <p></p>
+  <button class="btn btn-primary">Log in</button>
+  
+
+<% end %>
+
+
+</div>
